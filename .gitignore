@@ -23,6 +23,7 @@
 # assets
 *.bin
 *.gltf
+*.glb
 *.png
 
 npm-debug.log*
