@@ -1,25 +1,70 @@
-import logo from './logo.svg';
+import { useEffect, useRef, useState } from 'react';
+
+import { Box, Grid, Paper, ThemeProvider, Stack, Divider } from '@mui/material';
+
 import './App.css';
 
+import SceneComponent from './scenes/BasicScene';
+import TvScene from './scenes/TvScene';
+
+//Components
+import TitleBar from './components/TitleBar';
+import AboutPara from './components/AboutPara';
+import Navigation from './components/Navigation';
+import AboutLinks from './components/AboutLinks';
+import DisplayAppCardThingy from './components/DisplayApp';
+import Artist from './components/Artist';
+
+//Themes
+import { lightDefault } from './themes/defaultLight';
+
 function App() {
+  const [currentTheme, setCurrentTheme] = useState(lightDefault);
+  const [page, setPage] = useState('home');
+
+
+  useEffect(() => {
+    document.body.style.backgroundColor =
+    currentTheme.palette.background.default;
+  }, []);
+
+  const changePage = (target) => {
+    setPage(target);
+    console.log('Target:', target, 'Page:', page);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={lightDefault}>
+      <center>
+    <Box maxWidth={'70%'} style={{ padding: '0px', margin: '0px' }}>
+      <Stack spacing={2} justifyContent={"center"} alignItems={"center"}>
+        <TitleBar changePage={changePage} />
+        <Divider style={{ padding: '1px', width: '70%' }} />
+        <Navigation changePage={changePage}/>
+        <AboutLinks />
+        
+        {page === 'home' &&
+        <AboutPara />
+        }
+
+        {page === 'developer' && 
+          <DisplayAppCardThingy />
+        }
+
+        {page === 'artist' && 
+          <Artist />
+        }
+        
+
+
+
+      </Stack>
+
+     </Box>
+     </center>
+     </ThemeProvider>
+  )
 }
 
 export default App;
