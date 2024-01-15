@@ -1,46 +1,56 @@
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, Typography, Paper, CardActions, CardMedia, Button } from '@mui/material';
+import { Stack, CardContent, CardHeader, Typography, Paper, CardActions, CardMedia, Button } from '@mui/material';
 
 function DisplayAppCardThingy() {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isTextVisible, setIsTextVisible] = useState(false);
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    }
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    }
+    const showText = () => {
+      setIsTextVisible(true);
+    };
+  
+    const hideText = () => {
+      setIsTextVisible(false);
+    };
+  
+    const buttonClick = (buttonNumber) => {
+      alert(`Button ${buttonNumber} clicked!`);
+    };
 
     return (
-        <div>
-        <Card onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <CardMedia component="img" height="240" image="./assets/screens/pickles02.png" alt="Robot Pickle Farm Screen Cap"
-            style={{ filter: isHovered ? 'brightness(70%)' : 'brightness(100%)' }} />
-            <CardContent>
-                <Typography variant='h6' component="div">
-                    Robotic Pickle Farm
-                </Typography>
-                <Typography variant='caption'>
-                    A pickling clicker game
-                </Typography>
-
-                {isHovered && (
-                    <div>
-                        <Button variant='contained' color="primary">
-                            Play
-                        </Button>
-                        <Button variant='contained' color="primary">
-                            About    
-                        </Button>
-                        <Button variant='contained' color="primary">
-                            Source
-                        </Button>
-                    </div>
-                )}
-            </CardContent>
-            
-        </Card>
-        </div>
+        <Paper elevation={2}>
+            <div
+                style={{
+                    position: 'relative',
+                    width: '300px',
+                    height: '300px',
+                    background: 'url("./assets/screens/pickles02.png") center/cover',
+                    overflow: 'hidden',
+                }}
+                onMouseOver={showText}
+                onMouseOut={hideText}
+            >
+                <div
+                    style={{
+                        position: 'absolute',
+                        bottom: '0',
+                        left: '0',
+                        width: '100%',
+                        background: 'rgba(0, 0, 0, 0.7)',
+                        color: '#fff',
+                        padding: '20px',
+                        boxSizing: 'border-box',
+                        transform: isTextVisible ? 'translateY(0)' : 'translateY(100%)',
+                        transition: 'transform 0.3s ease-out',
+                    }}
+                >
+                    <Stack>
+                    <Button variant='empty'>Play</Button>
+                    <Button variant='empty'>About</Button>
+                    <Button variant='empty'>Source</Button>
+                    </Stack>
+                </div>
+            </div>
+        </Paper>
     );
 };
 
