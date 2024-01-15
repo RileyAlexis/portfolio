@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Stack, CardContent, CardHeader, Typography, Paper, CardActions, CardMedia, Button } from '@mui/material';
+import { Stack, Typography, Paper, Button } from '@mui/material';
 
-function DisplayAppCardThingy() {
+function DisplayApp({ image, link, source, about }) {
     const [isTextVisible, setIsTextVisible] = useState(false);
+    const [showAbout, setShowAbout] = useState(false);
 
     const showText = () => {
       setIsTextVisible(true);
@@ -11,19 +12,19 @@ function DisplayAppCardThingy() {
     const hideText = () => {
       setIsTextVisible(false);
     };
-  
-    const buttonClick = (buttonNumber) => {
-      alert(`Button ${buttonNumber} clicked!`);
-    };
 
+    const toggleAbout = () => {
+        setShowAbout(true);
+    }
+  
     return (
-        <Paper elevation={2}>
+        <Paper elevation={4}>
             <div
                 style={{
                     position: 'relative',
                     width: '300px',
                     height: '300px',
-                    background: 'url("./assets/screens/pickles02.png") center/cover',
+                    background: `url("${image}") center/cover`,
                     overflow: 'hidden',
                 }}
                 onMouseOver={showText}
@@ -44,9 +45,12 @@ function DisplayAppCardThingy() {
                     }}
                 >
                     <Stack>
-                    <Button variant='empty'>Play</Button>
-                    <Button variant='empty'>About</Button>
-                    <Button variant='empty'>Source</Button>
+                    <Button variant='empty'href="link to deployed app here" target="_blank">Play</Button>
+                    {/* <Button variant='empty' onClick={() => toggleAbout()}>About</Button> */}
+                    <Button variant='empty' 
+                        href="https://github.com/RileyAlexis/roboticPickleFarm" target="_blank">
+                        Source
+                    </Button>
                     </Stack>
                 </div>
             </div>
@@ -54,4 +58,4 @@ function DisplayAppCardThingy() {
     );
 };
 
-export default DisplayAppCardThingy;
+export default DisplayApp;

@@ -25,6 +25,7 @@
 *.gltf
 *.glb
 *.png
+*.kra
 
 npm-debug.log*
 yarn-debug.log*

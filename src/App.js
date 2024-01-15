@@ -12,7 +12,7 @@ import TitleBar from './components/TitleBar';
 import AboutPara from './components/AboutPara';
 import Navigation from './components/Navigation';
 import AboutLinks from './components/AboutLinks';
-import DisplayAppCardThingy from './components/DisplayApp';
+import DisplayApp from './components/DisplayApp';
 import Artist from './components/Artist';
 
 //Themes
@@ -49,7 +49,9 @@ function App() {
         }
 
         {page === 'developer' && 
-          <DisplayAppCardThingy />
+          <DisplayApp 
+            image={"./assets/screens/roboticpicklefarm.jpg"} 
+            source={"https://github.com/RileyAlexis/roboticPickleFarm"} />
         }
 
         {page === 'artist' && 
