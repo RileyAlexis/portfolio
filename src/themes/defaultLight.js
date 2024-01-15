@@ -32,7 +32,8 @@ export const lightDefault = createTheme({
             style: {
               border: 0,
               borderRadius: 16,
-              background: 'transparent'
+              background: 'transparent',
+              textTransform: 'none'
             }
           },
           {
@@ -43,7 +44,8 @@ export const lightDefault = createTheme({
               borderRadius: 16,
               background: 'transparent',
               padding: '2px',
-              margin: '0'
+              margin: '0',
+              textTransform: 'none'
             }
           }
         ],

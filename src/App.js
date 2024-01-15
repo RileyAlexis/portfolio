@@ -16,6 +16,7 @@ import Navigation from './components/Navigation';
 import AboutLinks from './components/AboutLinks';
 import DisplayApp from './components/DisplayApp';
 import Artist from './components/Artist';
+import Stacks from './components/Stacks';
 
 //Themes
 import { lightDefault } from './themes/defaultLight';
@@ -55,7 +56,10 @@ function App() {
         <AboutLinks />
         
         {page === 'home' &&
+        <Box style={{ marginTop:'15px' }}>
         <AboutPara />
+        <Stacks />
+        </Box>
         }
 
         {page === 'developer' && 
