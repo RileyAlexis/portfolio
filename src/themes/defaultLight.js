@@ -34,6 +34,17 @@ export const lightDefault = createTheme({
               borderRadius: 16,
               background: 'transparent'
             }
+          },
+          {
+            props: { variant: 'empty-small'},
+            style: {
+              size: "sm",
+              border: 0,
+              borderRadius: 16,
+              background: 'transparent',
+              padding: '2px',
+              margin: '0'
+            }
           }
         ],
         styleOverrides: {
@@ -60,9 +71,17 @@ export const lightDefault = createTheme({
             padding: '2px',
             fontSize: '1.25rem',
             alignItems: 'center'
-
           }
-        }
+        },
+        {
+          props: {variant: 'buttons-small'},
+          style: {
+            display: 'inline',
+            padding: '2px',
+            fontSize: '1rem',
+            alignItems: 'center'
+          }
+        },
       ],
       styleOverrides: {
         root: {

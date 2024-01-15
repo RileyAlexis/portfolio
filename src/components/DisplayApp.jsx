@@ -45,7 +45,7 @@ function DisplayApp({ image, link, source, about }) {
                     }}
                 >
                     <Stack>
-                    <Button variant='empty'href="link to deployed app here" target="_blank">Play</Button>
+                    <Button variant='empty'href="link to deployed app here" target="_blank">Open</Button>
                     {/* <Button variant='empty' onClick={() => toggleAbout()}>About</Button> */}
                     <Button variant='empty' 
                         href="https://github.com/RileyAlexis/roboticPickleFarm" target="_blank">

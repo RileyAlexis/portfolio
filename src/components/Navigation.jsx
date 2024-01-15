@@ -1,7 +1,13 @@
-import { Paper, Typography, Button, Divider } from "@mui/material";
+import { useEffect, useState } from "react";
 
-function Navigation({changePage}) {
-    
+import { Paper, Typography, Button, Divider } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
+
+function Navigation({changePage, isSmallScreen}) {
+
+  const [buttonSize, setButtonSize] = useState('empty');
+  const [typoSize, setTypoSize] = useState('buttons');
+
     //Styling for || pipe dividers
     const divStyle = {
         transform: 'scaleY(2)',
@@ -12,22 +18,33 @@ function Navigation({changePage}) {
         margin: 0
     }
 
+    useEffect(() => {
+        console.log(buttonSize, isSmallScreen);
+        if (isSmallScreen) {
+                setButtonSize('empty-small');
+                setTypoSize('buttons-small');
+        } else if (!isSmallScreen) {
+                setButtonSize('empty');
+                setTypoSize('buttons');
+        }
+      }, []);
+
     return (
         <Paper elevation={0} style={{ width: '100%'}}>
-                <Button variant="empty" onClick={() => changePage('developer')}>
-            <Typography variant="buttons">
+                <Button variant={buttonSize} onClick={() => changePage('developer')}>
+            <Typography variant={typoSize}>
                     Developer
             </Typography>
                     </Button>
                 <Typography style={divStyle}>||</Typography>
-                    <Button variant="empty" onClick={() => changePage('artist')}> 
-            <Typography variant="buttons" >
+                    <Button variant={buttonSize} onClick={() => changePage('artist')}> 
+            <Typography variant={typoSize} >
                     Artist
             </Typography>
                     </Button> 
                 <Typography style={divStyle}>||</Typography>
-                    <Button variant="empty" onClick={() => changePage('nerd')}>
-            <Typography variant="buttons">
+                    <Button variant={buttonSize} onClick={() => changePage('nerd')}>
+            <Typography variant={typoSize}>
                     Nerd
             </Typography>
                     </Button>  
