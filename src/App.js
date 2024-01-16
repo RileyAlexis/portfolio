@@ -52,7 +52,7 @@ function App() {
       <Stack spacing={2} justifyContent={"center"} alignItems={"center"}>
         <TitleBar changePage={changePage} />
         <Divider style={{ padding: '1px', width: `${boxWidth}` }} />
-        <Navigation changePage={changePage} isSmallScreen={isSmallScreen}/>
+        <Navigation changePage={changePage} page={page} isSmallScreen={isSmallScreen}/>
         <AboutLinks />
         
         {page === 'home' &&
@@ -63,7 +63,7 @@ function App() {
         }
 
         {page === 'developer' && 
-        <Stack direction={"horizontal"} gap={3}>
+        <Stack direction={"row"} gap={3}>
           <DisplayApp 
             image={"./assets/screens/roboticpicklefarm.jpg"} 
             source={"https://github.com/RileyAlexis/roboticPickleFarm"} />
@@ -73,13 +73,11 @@ function App() {
             </Stack>
         }
 
-        {page === 'artist' && 
+        {page === 'artist' &&
+        <Grid container direction={"row"} justifyContent={"center"}> 
           <Artist />
+          </Grid>
         }
-        
-
-
-
       </Stack>
 
      </Box>
