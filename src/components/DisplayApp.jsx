@@ -6,55 +6,55 @@ function DisplayApp({ image, link, source, about }) {
     const [showAbout, setShowAbout] = useState(false);
 
     const showText = () => {
-      setIsTextVisible(true);
+        setIsTextVisible(true);
     };
-  
+
     const hideText = () => {
-      setIsTextVisible(false);
+        setIsTextVisible(false);
     };
 
     const toggleAbout = () => {
         setShowAbout(true);
     }
-  
+
     return (
-        <Paper elevation={4}>
+        // <Paper elevation={4}>
+        <div
+            style={{
+                position: 'relative',
+                width: '300px',
+                height: '300px',
+                background: `url("${image}") center/cover`,
+                overflow: 'hidden',
+            }}
+            onMouseOver={showText}
+            onMouseOut={hideText}
+        >
             <div
                 style={{
-                    position: 'relative',
-                    width: '300px',
-                    height: '300px',
-                    background: `url("${image}") center/cover`,
-                    overflow: 'hidden',
+                    position: 'absolute',
+                    bottom: '0',
+                    left: '0',
+                    width: '100%',
+                    background: 'rgba(0, 0, 0, 0.7)',
+                    color: '#fff',
+                    padding: '20px',
+                    boxSizing: 'border-box',
+                    transform: isTextVisible ? 'translateY(0)' : 'translateY(100%)',
+                    transition: 'transform 0.3s ease-out',
                 }}
-                onMouseOver={showText}
-                onMouseOut={hideText}
             >
-                <div
-                    style={{
-                        position: 'absolute',
-                        bottom: '0',
-                        left: '0',
-                        width: '100%',
-                        background: 'rgba(0, 0, 0, 0.7)',
-                        color: '#fff',
-                        padding: '20px',
-                        boxSizing: 'border-box',
-                        transform: isTextVisible ? 'translateY(0)' : 'translateY(100%)',
-                        transition: 'transform 0.3s ease-out',
-                    }}
-                >
-                    <Stack>
-                    <Button variant='empty'href="link to deployed app here" target="_blank">Open</Button>
+                <Stack>
+                    <Button variant='empty' href={link} target="_blank">Open</Button>
                     {/* <Button variant='empty' onClick={() => toggleAbout()}>About</Button> */}
-                    <Button variant='empty' 
-                        href="https://github.com/RileyAlexis/roboticPickleFarm" target="_blank">
+                    <Button variant='empty'
+                        href={source} target="_blank">
                         Source
                     </Button>
-                    </Stack>
-                </div>
+                </Stack>
             </div>
-        </Paper>
+        </div>
+        // </Paper>
     );
 };
 

@@ -43,7 +43,7 @@ function Navigation({ changePage, page, isSmallScreen }) {
 
                         <Button variant={buttonSize} onClick={() => changePage('developer')}>
                                 <Typography variant={typoSize}>
-                                        Developer
+                                        Applications
                                 </Typography>
                         </Button>
 

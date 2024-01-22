@@ -13,61 +13,77 @@ export const lightDefault = createTheme({
       main: '#dd2c00',
     },
     background: {
-        default: '#4c4851',
-        paper: '#4c4851'
+      default: '#4c4851',
+      paper: '#4c4851'
     },
     text: {
-        primary: '#fff',
-        secondary: '#c2ebdf'
+      primary: '#fff',
+      secondary: '#c2ebdf'
     }
   },
-    typography: {
-      fontFamily: 'Open Sans',
-    },
-    components: {
-      MuiButton: {
-        variants: [
-          {
-            props: { variant: 'empty'},
-            style: {
-              border: 0,
-              borderRadius: 16,
-              background: 'transparent',
-              textTransform: 'none'
-            }
-          },
-          {
-            props: { variant: 'empty-small'},
-            style: {
-              size: "sm",
-              border: 0,
-              borderRadius: 16,
-              background: 'transparent',
-              padding: '2px',
-              margin: '0',
-              textTransform: 'none'
+  typography: {
+    fontFamily: 'Open Sans',
+  },
+  components: {
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: 'empty-title' },
+          style: {
+            border: 0,
+            borderRadius: 16,
+            textTransform: 'none',
+          }
+        },
+        {
+          props: { variant: 'empty' },
+          style: {
+            border: 0,
+            borderRadius: 16,
+            background: 'linear-gradient(90deg, rgba(120, 120, 120, 0.2) 0%, rgba(222, 222, 222, 0.32) 100%)',
+            textTransform: 'none',
+            margin: '5px',
+            paddingTop: '0px',
+            paddingBottom: '0px',
+            paddingLeft: '4px',
+            paddingRight: '4px',
+            hover: {
+              background: 'linear-gradient(90deg, rgba(222, 222, 222, 0.32) 0%,  rgba(120, 120, 120, 0.2) 100%)',
             }
           }
-        ],
-        styleOverrides: {
-          root: {
-           
-          },
+        },
+        {
+          props: { variant: 'empty-small' },
+          style: {
+            size: "sm",
+            border: 0,
+            borderRadius: 16,
+            background: 'transparent',
+            padding: '2px',
+            margin: '0',
+            textTransform: 'none'
+          }
+        }
+      ],
+      styleOverrides: {
+        root: {
+
         },
       },
+    },
     MuiPaper: {
       styleOverrides: {
-        root:{
-         padding: '0px',
-         margin: '0px',
-         borderRadius: '1px',
+        root: {
+          padding: '0px',
+          margin: '0px',
+          borderRadius: '1px',
         },
       },
     },
     MuiTypography: {
       variants: [
         {
-          props: {variant: 'buttons'},
+          props: { variant: 'buttons' },
           style: {
             display: 'inline',
             padding: '2px',
@@ -76,7 +92,7 @@ export const lightDefault = createTheme({
           }
         },
         {
-          props: {variant: 'buttons-small'},
+          props: { variant: 'buttons-small' },
           style: {
             display: 'inline',
             padding: '2px',
@@ -116,9 +132,9 @@ export const lightDefault = createTheme({
       }
     },
     MuiGrid: {
-      variants : [
+      variants: [
         {
-          props: { variant: 'border'},
+          props: { variant: 'border' },
           style: {
             border: '2px solid white',
           }
@@ -138,57 +154,57 @@ export const lightDefault = createTheme({
         }
       }
     }
+  },
+  props: {
+    MuiList: {
+      dense: true,
     },
-    props: {
-      MuiList: {
-        dense: true,
-      },
-      MuiMenuItem: {
-        dense: true,
-      },
-      MuiTable: {
-        size: 'small',
-      },
-      MuiButton: {
-        size: 'small',
-      },
-      MuiButtonGroup: {
-        size: 'small',
-      },
-      MuiCheckbox: {
-        size: 'small',
-      },
-      MuiFab: {
-        size: 'small',
-      },
-      MuiFormControl: {
-        margin: 'dense',
-        size: 'small',
-      },
-      MuiFormHelperText: {
-        margin: 'dense',
-      },
-      MuiIconButton: {
-        size: 'small',
-      },
-      MuiInputBase: {
-        margin: 'dense',
-      },
-      MuiInputLabel: {
-        margin: 'dense',
-      },
-      MuiRadio: {
-        size: 'small',
-      },
-      MuiSwitch: {
-        size: 'small',
-      },
-      MuiTextField: {
-        margin: 'dense',
-        size: 'small',
-      },
-      MuiTooltip: {
-        arrow: true,
-      },
+    MuiMenuItem: {
+      dense: true,
     },
-  });
+    MuiTable: {
+      size: 'small',
+    },
+    MuiButton: {
+      size: 'small',
+    },
+    MuiButtonGroup: {
+      size: 'small',
+    },
+    MuiCheckbox: {
+      size: 'small',
+    },
+    MuiFab: {
+      size: 'small',
+    },
+    MuiFormControl: {
+      margin: 'dense',
+      size: 'small',
+    },
+    MuiFormHelperText: {
+      margin: 'dense',
+    },
+    MuiIconButton: {
+      size: 'small',
+    },
+    MuiInputBase: {
+      margin: 'dense',
+    },
+    MuiInputLabel: {
+      margin: 'dense',
+    },
+    MuiRadio: {
+      size: 'small',
+    },
+    MuiSwitch: {
+      size: 'small',
+    },
+    MuiTextField: {
+      margin: 'dense',
+      size: 'small',
+    },
+    MuiTooltip: {
+      arrow: true,
+    },
+  },
+});
