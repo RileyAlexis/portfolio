@@ -6,13 +6,12 @@ function AboutPara({ showPara }) {
         <Paper elevation={0}>
             {showPara === 'bio' &&
                 < Typography textAlign={"center"} variant="body1" style={{ height: '500px', overflow: 'hidden' }}>
-                    Hello, I'm Riley Alexis, a passionate web developer with a focus on full-stack development.
-                    My expertise lies in crafting dynamic and responsive web applications using cutting-edge technologies. Proficient in React
-                    for front-end development and Node.js with Express for back-end, I bring a comprehensive approach to building robust and seamless
-                    digital experiences. I honed my skills at Prime Digital Academy, where I underwent intensive training and gained hands-on experience
-                    in the latest web development practices. My commitment to creating user-friendly interfaces and leveraging the power of technology to
-                    solve real-world problems drives my work. With a solid foundation in both front-end and back-end development, I am excited to contribute
-                    my skills to innovative projects and collaborate with like-minded professionals.</Typography>
+                    Hello, I'm Riley Alexis, a new but capable web developer with a focus on full stack development. As a 2023 graduate of Prime Digital Academy I'm proficient in React, Redux, Node, Express and Postgres among numerous other web technologies. Please see the example applications on the right.
+
+                    I am continually learning new technologies and creating new possibilities with my work and education. Due to technological tenacity I was able to self host this site by spending two days learning Ubuntu Server, Nginx and PM(a Node manager) and LetsEncrypt to create a 3rd party signed SSL certificate to enable https. Next up is containers with Docker.  Sure I could have just paid to host on Heroku, AWS or another service but what fun would that be?
+
+                    For additional information please see my LinkedIn profile and Github.
+                </Typography>
             }
 
             {
