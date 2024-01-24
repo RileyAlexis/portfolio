@@ -22,9 +22,11 @@ function AppsPage({ page, setShowPara, showPara }) {
     const handleMouseDown = (event) => {
         if (grid1Ref.current && grid1Ref.current.contains(event.target)) {
             setAppStyle(applyBorder);
+            setAppStyle2(disableBorder)
             setShowPara('pickles');
         }
         if (grid2Ref.current && grid2Ref.current.contains(event.target)) {
+            setAppStyle(disableBorder);
             setAppStyle2(applyBorder);
             setShowPara('velvet');
 

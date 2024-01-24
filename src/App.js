@@ -6,16 +6,11 @@ import { useMediaQuery } from "@mui/material";
 
 import './App.css';
 
-import SceneComponent from './scenes/BasicScene';
-import TvScene from './scenes/TvScene';
 
 //Components
 import TitleBar from './components/TitleBar';
 import AboutPara from './components/AboutPara';
-import Navigation from './components/Navigation';
 import AboutLinks from './components/AboutLinks';
-import DisplayApp from './components/DisplayApp';
-import Artist from './components/Artist';
 import Stacks from './components/Stacks';
 
 //Themes

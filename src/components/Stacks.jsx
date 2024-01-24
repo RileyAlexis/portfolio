@@ -51,9 +51,9 @@ function Stacks() {
                         <Typography variant={"buttons"}>Linux</Typography>
                     </Button>
 
-                    <Button variant="empty-small" href="https://httpd.apache.org" target="_blank">
-                        <i className="devicon-apache-plain" style={{ padding: '5px' }}></i>
-                        <Typography variant={"buttons"}>Apache</Typography>
+                    <Button variant="empty-small" href="https://nginx.org/en/" target="_blank">
+                        <i className="devicon-nginx-plain" style={{ padding: '5px' }}></i>
+                        <Typography variant={"buttons"}>Nginx</Typography>
                     </Button>
                 </Grid>
             </Grid>

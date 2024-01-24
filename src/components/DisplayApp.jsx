@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Stack, Typography, Paper, Button } from '@mui/material';
 
-function DisplayApp({ image, link, source, about }) {
+function DisplayApp({ image, link, source }) {
     const [isTextVisible, setIsTextVisible] = useState(false);
-    const [showAbout, setShowAbout] = useState(false);
 
     const showText = () => {
         setIsTextVisible(true);
@@ -12,10 +11,6 @@ function DisplayApp({ image, link, source, about }) {
     const hideText = () => {
         setIsTextVisible(false);
     };
-
-    const toggleAbout = () => {
-        setShowAbout(true);
-    }
 
     return (
         // <Paper elevation={4}>
