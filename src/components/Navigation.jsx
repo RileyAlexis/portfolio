@@ -30,17 +30,13 @@ function Navigation({ changePage, page, isSmallScreen }) {
 
         return (
                 <Paper elevation={0} style={{ width: '100%' }}>
-
                         {page !== 'home' &&
-                                <>
-                                        <Button variant={buttonSize} onClick={() => changePage('home')}>
-                                                <Typography variant={typoSize} >
-                                                        Home
-                                                </Typography>
-                                        </Button>
-                                </>
+                                <Button variant={buttonSize} onClick={() => changePage('home')}>
+                                        <Typography variant={typoSize} >
+                                                Home
+                                        </Typography>
+                                </Button>
                         }
-
                         <Button variant={buttonSize} onClick={() => changePage('developer')}>
                                 <Typography variant={typoSize}>
                                         Applications

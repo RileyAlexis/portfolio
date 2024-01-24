@@ -20,6 +20,7 @@ import Stacks from './components/Stacks';
 
 //Themes
 import { lightDefault } from './themes/defaultLight';
+import AppsPage from './components/AppsPage';
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState(lightDefault);
@@ -45,52 +46,42 @@ function App() {
     console.log('Target:', target, 'Page:', page);
   }
 
-  const handleMouseOver = (page) => {
-    console.log(page);
-    setShowPara(page);
-  }
-
-  const handleMouseOut = () => {
-    setShowPara('bio');
-  }
-
   return (
     <ThemeProvider theme={lightDefault}>
       <center>
-        <Box maxWidth={'70%'} style={{ padding: '0px', margin: '0px' }}>
-          <Stack spacing={2} justifyContent={"center"} alignItems={"center"}>
-            <TitleBar changePage={changePage} />
-            <Divider style={{ padding: '1px', width: `${boxWidth}` }} />
-            {/* <Navigation changePage={changePage} page={page} isSmallScreen={isSmallScreen} /> */}
-            <AboutLinks />
-          </Stack>
-
-          <Grid container spacing={2} justifyContent={"space-around"} alignItems={"center"}>
-
-            <Grid item component={AboutPara} xs={12} showPara={showPara} />
-            <Grid item xs={12} sm={6} onMouseOver={() => handleMouseOver('pickles')} onMouseOut={handleMouseOut}>
-              <DisplayApp
-                image={"./assets/screens/roboticpicklefarm.jpg"}
-                source={"https://github.com/RileyAlexis/roboticPickleFarm"}
-                setShowPara={setShowPara}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} onMouseOver={() => handleMouseOver('velvet')} onMouseOut={handleMouseOut}>
-              <DisplayApp
-                image={"./assets/screens/velvet.jpg"}
-                source={"https://github.com/RileyAlexis/Velvet"}
-                setShowPara={setShowPara}
-              />
-            </Grid>
+        <Box maxWidth={'100%'} style={{ padding: '0px', margin: '0px' }}>
+          <Grid container spacing={2} justifyContent={'space-around'}>
             <Grid item xs={12}>
-              <Stacks />
+              <TitleBar changePage={changePage} />
+              <Divider style={{ padding: '1px', width: `${boxWidth}` }} />
             </Grid>
-            {page === 'artist' &&
-              <Grid container direction={"row"} justifyContent={"center"}>
-                <Artist />
+            <center>
+              <Grid item xs={12}>
+                <AboutLinks />
               </Grid>
-            }
+            </center>
           </Grid>
+
+          <Grid container spacing={2} justifyContent={"space-around"}>
+            <Grid container item md={6} maxHeight={'75%'} style={{ padding: '5px', marginTop: '20px', overflow: 'scroll' }}>
+              <Grid item>
+                <AboutPara showPara={showPara} />
+              </Grid>
+            </Grid>
+
+            <Grid container item md={5} gap={2}>
+              <AppsPage setShowPara={setShowPara} page={page} showPara={showPara} />
+
+            </Grid>
+          </Grid>
+
+
+
+          <Grid item xs={12}>
+            <Stacks />
+          </Grid>
+
+
         </Box>
       </center>
     </ThemeProvider >

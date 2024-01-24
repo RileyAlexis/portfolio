@@ -22,8 +22,8 @@ function DisplayApp({ image, link, source, about }) {
         <div
             style={{
                 position: 'relative',
-                width: '300px',
-                height: '300px',
+                width: '200px',
+                height: '200px',
                 background: `url("${image}") center/cover`,
                 overflow: 'hidden',
             }}
