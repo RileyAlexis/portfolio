@@ -5,13 +5,23 @@ function AboutPara({ showPara }) {
     return (
         <Paper elevation={0}>
             {showPara === 'bio' &&
-                < Typography textAlign={"center"} variant="body1" style={{ height: '500px', overflow: 'hidden' }}>
-                    Hello, I'm Riley Alexis, a new but capable web developer with a focus on full stack development. As a 2023 graduate of Prime Digital Academy I'm proficient in React, Redux, Node, Express and Postgres among numerous other web technologies. Please see the example applications on the right.
-
-                    I am continually learning new technologies and creating new possibilities with my work and education. Due to technological tenacity I was able to self host this site by spending two days learning Ubuntu Server, Nginx and PM(a Node manager) and LetsEncrypt to create a 3rd party signed SSL certificate to enable https. Next up is containers with Docker.  Sure I could have just paid to host on Heroku, AWS or another service but what fun would that be?
-
-                    For additional information please see my LinkedIn profile and Github.
-                </Typography>
+                <div style={{ height: '500px', overflow: 'hidden' }}>
+                    < Typography textAlign={"center"} variant="body1" >
+                        Hello, I'm Riley Alexis, a new but capable web developer with a focus on full stack development.
+                        As a 2023 graduate of Prime Digital Academy I'm proficient in React, Redux, Node, Express and Postgres
+                        among numerous other web technologies. Please see the example applications on the right.
+                    </Typography>
+                    < Typography textAlign={"center"} variant="body1">
+                        I am continually learning new technologies and creating new possibilities with my work and education.
+                        Due to technological tenacity I was able to self host this site by spending two days learning Ubuntu Server,
+                        Nginx, PM(a Node manager) and LetsEncrypt to create a 3rd party signed SSL certificate to enable https. Next up
+                        is containers with Docker.  Sure I could have just paid to host on Heroku, AWS or another service but what fun
+                        would that be?
+                    </Typography>
+                    < Typography textAlign={"center"} variant="body1">
+                        For additional information please see my LinkedIn profile and Github.
+                    </Typography>
+                </div>
             }
 
             {
