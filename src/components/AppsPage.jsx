@@ -67,7 +67,7 @@ function AppsPage({ page, setShowPara, showPara }) {
             <Grid item onClick={(event) => handleMouseDown(event)}>
                 <Grid item ref={grid2Ref} style={appStyle2}>
                     <DisplayApp
-                        linke={"https://velvet.rileyalexis.com"}
+                        link={"https://velvet.rileyalexis.com"}
                         image={"./assets/screens/velvet.jpg"}
                         source={"https://github.com/RileyAlexis/Velvet"}
                     />
