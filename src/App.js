@@ -58,13 +58,13 @@ function App() {
           </Grid>
 
           <Grid container spacing={2} justifyContent={"space-around"}>
-            <Grid container item md={6} maxHeight={'75%'} style={{ padding: '5px', marginTop: '20px', overflow: 'scroll' }}>
+            <Grid container item md={6} maxHeight={'75%'} style={{ padding: '5px', marginTop: '20px', marginLeft: '10px', overflow: 'scroll' }}>
               <Grid item>
                 <AboutPara showPara={showPara} />
               </Grid>
             </Grid>
 
-            <Grid container item md={5} gap={2}>
+            <Grid container item md={5} gap={2} xs={6}>
               <AppsPage setShowPara={setShowPara} page={page} showPara={showPara} />
 
             </Grid>
