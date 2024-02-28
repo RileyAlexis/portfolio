@@ -12,10 +12,13 @@ import TitleBar from './components/TitleBar';
 import AboutPara from './components/AboutPara';
 import AboutLinks from './components/AboutLinks';
 import Stacks from './components/Stacks';
+import { CodeDisplay } from './components/CodeDisplay';
+import AppsPage from './components/AppsPage';
 
 //Themes
 import { lightDefault } from './themes/defaultLight';
-import AppsPage from './components/AppsPage';
+
+import { codeData } from './modules/codeData';
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState(lightDefault);
@@ -23,6 +26,7 @@ function App() {
   const [boxWidth, setBoxWidth] = useState('70%');
   const isSmallScreen = useMediaQuery("(max-width: 600px)");
   const [showPara, setShowPara] = useState('bio');
+  const [codeIndex, setCodeIndex] = useState(0);
 
   useEffect(() => {
     document.body.style.backgroundColor =
@@ -30,11 +34,13 @@ function App() {
 
     if (isSmallScreen) {
       setBoxWidth('100%');
+      setCodeIndex(0);
     } else if (!isSmallScreen) {
       setBoxWidth('70%');
+      setCodeIndex(1);
     }
 
-  }, []);
+  }, [isSmallScreen]);
 
   const changePage = (target) => {
     setPage(target);
@@ -43,42 +49,7 @@ function App() {
 
   return (
     <ThemeProvider theme={lightDefault}>
-      <center>
-        <Box maxWidth={'100%'} style={{ padding: '0px', margin: '0px' }}>
-          <Grid container spacing={2} justifyContent={'space-around'}>
-            <Grid item xs={12}>
-              <TitleBar changePage={changePage} />
-              <Divider style={{ padding: '1px', width: `${boxWidth}` }} />
-            </Grid>
-            <center>
-              <Grid item xs={12}>
-                <AboutLinks />
-              </Grid>
-            </center>
-          </Grid>
-
-          <Grid container spacing={2} justifyContent={"space-around"}>
-            <Grid container item md={6} maxHeight={'75%'} style={{ padding: '5px', marginTop: '20px', marginLeft: '10px', overflow: 'scroll' }}>
-              <Grid item>
-                <AboutPara showPara={showPara} />
-              </Grid>
-            </Grid>
-
-            <Grid container item md={5} gap={2} xs={6}>
-              <AppsPage setShowPara={setShowPara} page={page} showPara={showPara} />
-
-            </Grid>
-          </Grid>
-
-
-
-          <Grid item xs={12}>
-            <Stacks />
-          </Grid>
-
-
-        </Box>
-      </center>
+      <CodeDisplay codeProp={codeData[codeIndex]} />
     </ThemeProvider >
   )
 }
