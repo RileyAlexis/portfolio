@@ -10,7 +10,7 @@ export const CodeDisplay = ({ codeProp }) => {
 
     const codeStyleBig = {
         position: 'absolute',
-        opacity: 0.3,
+        opacity: 0.2,
         fontSize: 14,
         overflow: 'hidden',
         width: (window.innerWidth) * 0.9,
@@ -19,17 +19,19 @@ export const CodeDisplay = ({ codeProp }) => {
 
     const codeStyleSmall = {
         position: 'absolute',
-        opacity: 0.3,
+        opacity: 0.2,
         fontSize: 8,
         overflow: 'hidden',
         width: (window.innerWidth) * 0.9,
         height: (window.innerHeight),
-
     }
+
+
 
     useEffect(() => {
         setCodeSnippet(() => codeProp);
-    }, [codeProp])
+    }, [codeProp]);
+
 
     return (
         <Highlight
