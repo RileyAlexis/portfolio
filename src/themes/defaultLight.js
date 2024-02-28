@@ -72,6 +72,15 @@ export const lightDefault = createTheme({
       },
     },
     MuiPaper: {
+      variants: [
+        {
+          props: { variant: 'textBlock' },
+          style: {
+            background: 'transparent',
+            margin: '5px',
+          }
+        }
+      ],
       styleOverrides: {
         root: {
           padding: '0px',

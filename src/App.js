@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 //Material UI
-import { Grid, ThemeProvider, Stack } from '@mui/material';
+import { Grid, ThemeProvider, Stack, Paper } from '@mui/material';
 import { useMediaQuery } from "@mui/material";
 
 import './App.css';
@@ -18,6 +18,7 @@ import { CodeDisplay } from './components/CodeDisplay';
 import { lightDefault } from './themes/defaultLight';
 
 import { codeData } from './modules/codeData';
+import { AppButton } from './components/AppButton';
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState(lightDefault);
@@ -64,14 +65,10 @@ function App() {
           <TitleBar />
           <AboutLinks />
         </Stack>
-        <Stack direction={"row"}
-          style={{
-            marginTop: 20,
-            padding: 10,
-          }}
-        >
+
+        <Stack direction={"row"}>
           <AboutPara showPara='bio' />
-          <AppsPage />
+          <AppButton buttonTitle={"Velvet"} />
         </Stack>
 
         <Stacks />

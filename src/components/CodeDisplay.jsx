@@ -15,6 +15,8 @@ export const CodeDisplay = ({ codeProp }) => {
         overflow: 'hidden',
         width: (window.innerWidth) * 0.9,
         height: (window.innerHeight) * 0.9,
+        filter: 'blur(1.4px)',
+        zIndex: -1
     }
 
     const codeStyleSmall = {
@@ -24,6 +26,17 @@ export const CodeDisplay = ({ codeProp }) => {
         overflow: 'hidden',
         width: (window.innerWidth) * 0.9,
         height: (window.innerHeight),
+        filter: 'blur(0.8px)',
+        zIndex: -4
+    }
+
+    const overlayStyle = {
+        position: 'absolute',
+        height: (window.innerHeight),
+        width: (window.innerWidth),
+        background: 'rgba(0,0,0,0.3)',
+        zIndex: -3
+
     }
 
 
@@ -34,23 +47,25 @@ export const CodeDisplay = ({ codeProp }) => {
 
 
     return (
-        <Highlight
-            theme={themes.okaidia}
-            code={codeSnippet}
-            language="javascript"
-        >
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                <pre style={isSmallScreen ? codeStyleSmall : codeStyleBig}>
-                    {tokens.map((line, i) => (
-                        <div key={i} {...getLineProps({ line })}>
-                            <span>{i + 1}</span>
-                            {line.map((token, key) => (
-                                <span key={key} {...getTokenProps({ token })} />
-                            ))}
-                        </div>
-                    ))}
-                </pre>
-            )}
-        </Highlight>
+        <div style={overlayStyle}>
+            <Highlight
+                theme={themes.okaidia}
+                code={codeSnippet}
+                language="javascript"
+            >
+                {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                    <pre style={isSmallScreen ? codeStyleSmall : codeStyleBig}>
+                        {tokens.map((line, i) => (
+                            <div key={i} {...getLineProps({ line })}>
+                                <span>{i + 1}</span>
+                                {line.map((token, key) => (
+                                    <span key={key} {...getTokenProps({ token })} />
+                                ))}
+                            </div>
+                        ))}
+                    </pre>
+                )}
+            </Highlight>
+        </div>
     );
 }

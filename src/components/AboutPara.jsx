@@ -18,7 +18,7 @@ export function AboutPara({ showPara }) {
     })
 
     return (
-        <Paper elevation={0}>
+        <Paper elevation={0} variant="textBlock">
             {textData.map((textItem) => (
                 <Typography
                     style={paraStyle}>
