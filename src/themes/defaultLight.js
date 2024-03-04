@@ -36,6 +36,16 @@ export const lightDefault = createTheme({
           }
         },
         {
+          props: { variant: 'nav-button' },
+          style: {
+            borderRadius: 16,
+            padding: '0px 5px 0px 5px',
+            margin: '0 5px 0 5px',
+            textTransform: 'none',
+            background: 'transparent',
+          }
+        },
+        {
           props: { variant: 'empty' },
           style: {
             border: 0,
@@ -74,7 +84,7 @@ export const lightDefault = createTheme({
             background: 'transparent',
             margin: '5px',
           }
-        }
+        },
       ],
       styleOverrides: {
         root: {

@@ -52,6 +52,7 @@ function App() {
     <div>
       <ThemeProvider theme={lightDefault}>
         <CodeDisplay style={{ zIndex: 1 }} codeProp={codeData[codeIndex]} />
+
         <div className='container'>
           <header>
             <TitleBar />
@@ -76,15 +77,14 @@ function App() {
             setPara={setPara} /> */}
 
           {/* <Stacks /> */}
-        </div>
 
-        {isSmallScreen &&
-          <div className='mobileNav'>
+          {isSmallScreen &&
             <MobileNav setPara={setPara} />
-          </div>
-        }
+          }
+        </div>
       </ThemeProvider >
     </div>
+
   )
 }
 
