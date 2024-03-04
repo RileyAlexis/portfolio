@@ -20,6 +20,7 @@ import { lightDefault } from './themes/defaultLight';
 //Data
 import { codeData } from './modules/codeData';
 import { paraData } from './modules/paraData';
+import { MobileNav } from './components/MobileNav';
 
 
 function App() {
@@ -29,11 +30,6 @@ function App() {
   const [codeIndex, setCodeIndex] = useState(0);
   const [para, setPara] = useState('bio');
   const [textData, setTextData] = useState(paraData[para]);
-
-  // useEffect(() => {
-  //   document.body.style.backgroundColor =
-  //     currentTheme.palette.background.default;
-  // }, []);
 
   useEffect(() => {
     const setResize = () => {
@@ -56,28 +52,37 @@ function App() {
     <div>
       <ThemeProvider theme={lightDefault}>
         <CodeDisplay style={{ zIndex: 1 }} codeProp={codeData[codeIndex]} />
+        <div className='container'>
+          <header>
+            <TitleBar />
+            <AboutLinks />
+          </header>
 
-        <header>
-          <TitleBar />
-          <AboutLinks />
-        </header>
+          <div className='aboutPara'>
+            <AboutPara textData={textData} />
+          </div>
+          {/* <AppButton
+            buttonTitle={"Velvet"}
+            source={"https://github.com/RileyAlexis/Velvet"}
+            application={"http://velvet.rileyalexis.com"}
+            textTitle={'velvet'}
+            setPara={setPara} />
 
-        <AboutPara textData={textData} />
-        <AppButton
-          buttonTitle={"Velvet"}
-          source={"https://github.com/RileyAlexis/Velvet"}
-          application={"http://velvet.rileyalexis.com"}
-          textTitle={'velvet'}
-          setPara={setPara} />
+          <AppButton
+            buttonTitle={"Robotic Pickle Farm"}
+            source={"https://github.com/RileyAlexis/roboticPickleFarm"}
+            application={"http://picklefarm.rileyalexis.com"}
+            textTitle={'pickles'}
+            setPara={setPara} /> */}
 
-        <AppButton
-          buttonTitle={"Robotic Pickle Farm"}
-          source={"https://github.com/RileyAlexis/roboticPickleFarm"}
-          application={"http://picklefarm.rileyalexis.com"}
-          textTitle={'pickles'}
-          setPara={setPara} />
+          {/* <Stacks /> */}
+        </div>
 
-        <Stacks />
+        {isSmallScreen &&
+          <div className='mobileNav'>
+            <MobileNav setPara={setPara} />
+          </div>
+        }
       </ThemeProvider >
     </div>
   )

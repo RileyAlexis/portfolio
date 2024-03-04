@@ -8,16 +8,10 @@ function TitleBar({ changePage }) {
     }
 
     return (
-        <Button variant="empty-title" style={{ color: 'white' }} onClick={() => changePage('home')}>
-            <Typography variant='h4'>Riley Alexis</Typography>
-            <Typography variant='h6'
-                style={{
-                    alignSelf: 'center',
-                    marginLeft: 20,
-                    marginTop: 5
-                }}
-            >Web Developer</Typography>
-        </Button>
+        <div class="titles-box">
+            <h1 className='titleBar'>Riley Alexis</h1>
+            <h2 className='subTitleBar'>Web Developer</h2>
+        </div>
     )
 }
 

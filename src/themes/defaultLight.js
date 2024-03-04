@@ -33,7 +33,6 @@ export const lightDefault = createTheme({
             border: 0,
             borderRadius: 16,
             textTransform: 'none',
-            fontSize: 24
           }
         },
         {
@@ -66,11 +65,6 @@ export const lightDefault = createTheme({
           }
         }
       ],
-      styleOverrides: {
-        root: {
-
-        },
-      },
     },
     MuiPaper: {
       variants: [
@@ -97,7 +91,6 @@ export const lightDefault = createTheme({
           style: {
             display: 'inline',
             padding: '2px',
-            fontSize: '1.25rem',
             alignItems: 'center'
           }
         },
@@ -106,7 +99,6 @@ export const lightDefault = createTheme({
           style: {
             display: 'inline',
             padding: '2px',
-            fontSize: '1rem',
             alignItems: 'center'
           }
         },

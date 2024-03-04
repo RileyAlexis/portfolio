@@ -34,7 +34,7 @@ export const CodeDisplay = ({ codeProp }) => {
         position: 'absolute',
         height: (window.innerHeight),
         width: (window.innerWidth),
-        background: 'rgba(0,0,0,0.3)',
+        background: 'rgba(0,0,0,0.8)',
         zIndex: -3
     }
 

@@ -5,7 +5,7 @@ import SchoolIcon from '@mui/icons-material/School';
 
 function AboutLinks() {
   return (
-    <Toolbar>
+    <div>
       {/* GitHub Icon and Link */}
       <IconButton color="inherit" href="https://github.com/RileyAlexis" target="_blank">
         <GitHubIcon />
@@ -23,7 +23,7 @@ function AboutLinks() {
       </IconButton>
       {/* <Typography variant="h6">Prime Digital Academy</Typography> */}
 
-    </Toolbar>
+    </div>
   )
 }
 
