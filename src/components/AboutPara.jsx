@@ -3,9 +3,9 @@ import { paraData } from "../modules/paraData";
 import { useState } from "react";
 import { useEffect } from "react";
 
-export function AboutPara({ showPara }) {
+export function AboutPara({ textData }) {
 
-    const [textData, setTextData] = useState(paraData[showPara]);
+    // const [textData, setTextData] = useState(paraData[showPara]);
     const paraStyle = {
         textAlign: 'left',
         margin: 20,
@@ -18,13 +18,14 @@ export function AboutPara({ showPara }) {
     })
 
     return (
-        <Paper elevation={0} variant="textBlock">
-            {textData.map((textItem) => (
+        <div>
+            {textData.map((textItem, index) => (
                 <Typography
+                    key={index}
                     style={paraStyle}>
                     {textItem}
                 </Typography>
             ))}
-        </Paper >
+        </div>
     )
 }

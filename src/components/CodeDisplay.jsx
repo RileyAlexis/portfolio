@@ -36,10 +36,7 @@ export const CodeDisplay = ({ codeProp }) => {
         width: (window.innerWidth),
         background: 'rgba(0,0,0,0.3)',
         zIndex: -3
-
     }
-
-
 
     useEffect(() => {
         setCodeSnippet(() => codeProp);

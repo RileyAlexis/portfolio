@@ -33,6 +33,7 @@ export const lightDefault = createTheme({
             border: 0,
             borderRadius: 16,
             textTransform: 'none',
+            fontSize: 24
           }
         },
         {
