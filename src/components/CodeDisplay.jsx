@@ -16,7 +16,7 @@ export const CodeDisplay = ({ codeProp }) => {
         width: (window.innerWidth) * 0.9,
         height: (window.innerHeight) * 0.9,
         filter: 'blur(1.4px)',
-        zIndex: -1
+        zIndex: -4
     }
 
     const codeStyleSmall = {

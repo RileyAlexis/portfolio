@@ -1,6 +1,6 @@
 @layer base {
     :root {
-        --green: #d9d9d9;
+        --green: #33f20d;
         --whiteText: #fff;
 
         --sans: "Open Sans", sans-serif;
@@ -54,9 +54,13 @@
         margin: 0;
     }
 
+    .container {
+        padding: 0.2rem;
+    }
+
     header {
-        grid-column: 1/12;
         border-bottom: 2px solid white;
+        padding: 0 10px 10px 10px;
     }
 
     .titles-box {
@@ -66,19 +70,10 @@
 
     .titleBar {
         font-size: var(--h3);
-        margin-right: 2rem;
-
     }
 
     .subTitleBar {
         font-size: var(--h5);
-    }
-
-    .container {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(8 auto);
-        padding: 0.2rem;
     }
 
     .scrollBox {
@@ -93,11 +88,7 @@
 
 }
 
-@layer mobile {
-
-    .container {
-        grid-template-columns: repeat(12, 1fr);
-    }
+@media only screen and (max-width: 768px) {
 
     header {
         position: sticky;
@@ -127,10 +118,42 @@
 
     .appScreen h2 {
         text-align: center;
+        color: var(--green);
+    }
+
+    .appButtons {
+        text-align: center;
+    }
+}
+
+@media (min-width: 810px) {
+
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .titles-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .subTitleBar {
+        padding-left: 20px;
+    }
+
+    .aboutPara {
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
 
     .appButtons {
         text-align: center;
     }
 
+    .appScreen h2 {
+        text-align: center;
+        color: var(--green);
+    }
 }

@@ -13,12 +13,8 @@ export function AboutPara({ textData }) {
         textIndent: '2rem',
     }
 
-    useEffect(() => {
-        console.log(textData);
-    })
-
     return (
-        <div>
+        <div className="aboutPara">
             {textData.map((textItem, index) => (
                 <Typography
                     key={index}

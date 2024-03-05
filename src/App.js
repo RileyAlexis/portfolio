@@ -40,6 +40,7 @@ function App() {
   useEffect(() => {
     const setResize = () => {
       setCodeIndex(() => isSmallScreen ? 0 : 1);
+      document.body.style.backgroundColor = currentTheme.palette.background.defualt;
     }
 
     window.addEventListener('resize', setResize);

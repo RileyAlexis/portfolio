@@ -13,7 +13,7 @@ export const lightDefault = createTheme({
       main: '#dd2c00',
     },
     background: {
-      default: '#4c4851',
+      default: 'rgba(0,0,0,0.8)',
       paper: '#4c4851'
     },
     text: {
