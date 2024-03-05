@@ -1,85 +1,92 @@
 import { useEffect, useState } from 'react';
+import ReactPageScroller, { SectionContainer } from 'react-page-scroller';
+import './App.css';
 
 //Material UI
-import { Box, Grid, Paper, ThemeProvider, Stack, Divider } from '@mui/material';
+import { Grid, ThemeProvider, Stack, Paper, Button } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useMediaQuery } from "@mui/material";
-
-import './App.css';
 
 
 //Components
 import TitleBar from './components/TitleBar';
-import AboutPara from './components/AboutPara';
+import { AboutPara } from './components/AboutPara';
 import AboutLinks from './components/AboutLinks';
 import Stacks from './components/Stacks';
+import { CodeDisplay } from './components/CodeDisplay';
+import { AppButton } from './components/AppButton';
 
 //Themes
 import { lightDefault } from './themes/defaultLight';
-import AppsPage from './components/AppsPage';
+
+//Data
+import { codeData } from './modules/codeData';
+import { paraData } from './modules/paraData';
+import { MobileNav } from './components/MobileNav';
+import { HomeScreen } from './screens/Home.screen';
+import { PickleFarmScreen } from './screens/PickleFarm.screen';
+import { VelvetScreen } from './screens/Velvet.screen';
+
 
 function App() {
+  const [pageScroll, setPageScroll] = useState(0);
   const [currentTheme, setCurrentTheme] = useState(lightDefault);
   const [page, setPage] = useState('home');
-  const [boxWidth, setBoxWidth] = useState('70%');
   const isSmallScreen = useMediaQuery("(max-width: 600px)");
-  const [showPara, setShowPara] = useState('bio');
+  const [codeIndex, setCodeIndex] = useState(0);
+  const [para, setPara] = useState('bio');
+  const [textData, setTextData] = useState(paraData[para]);
 
   useEffect(() => {
-    document.body.style.backgroundColor =
-      currentTheme.palette.background.default;
-
-    if (isSmallScreen) {
-      setBoxWidth('100%');
-    } else if (!isSmallScreen) {
-      setBoxWidth('70%');
+    const setResize = () => {
+      setCodeIndex(() => isSmallScreen ? 0 : 1);
+      document.body.style.backgroundColor = currentTheme.palette.background.defualt;
     }
 
-  }, []);
+    window.addEventListener('resize', setResize);
 
-  const changePage = (target) => {
-    setPage(target);
-    console.log('Target:', target, 'Page:', page);
+    return () => {
+      window.removeEventListener('resize', setResize);
+    }
+  }, [codeIndex])
+
+  useEffect((() => {
+    console.log('useEffect para', para);
+    setTextData(paraData[para])
+  }), [para, setPara]);
+
+  const handlePageChange = (number) => {
+    setPageScroll(number);
+    console.log(number);
   }
 
   return (
     <ThemeProvider theme={lightDefault}>
-      <center>
-        <Box maxWidth={'100%'} style={{ padding: '0px', margin: '0px' }}>
-          <Grid container spacing={2} justifyContent={'space-around'}>
-            <Grid item xs={12}>
-              <TitleBar changePage={changePage} />
-              <Divider style={{ padding: '1px', width: `${boxWidth}` }} />
-            </Grid>
-            <center>
-              <Grid item xs={12}>
-                <AboutLinks />
-              </Grid>
-            </center>
-          </Grid>
+      <CodeDisplay style={{ zIndex: 1 }} codeProp={codeData[codeIndex]} />
 
-          <Grid container spacing={2} justifyContent={"space-around"}>
-            <Grid container item md={6} maxHeight={'75%'} style={{ padding: '5px', marginTop: '20px', marginLeft: '10px', overflow: 'scroll' }}>
-              <Grid item>
-                <AboutPara showPara={showPara} />
-              </Grid>
-            </Grid>
-
-            <Grid container item md={5} gap={2} xs={6}>
-              <AppsPage setShowPara={setShowPara} page={page} showPara={showPara} />
-
-            </Grid>
-          </Grid>
+      <div className='container'>
+        <header>
+          <TitleBar />
+          <AboutLinks />
+        </header>
+        <div className='scrollBox'>
+          <ReactPageScroller pageOnChange={handlePageChange} containerHeight={"95vh"} >
+            <HomeScreen />
+            <PickleFarmScreen />
+            <VelvetScreen />
+          </ReactPageScroller>
+          {pageScroll < 2 &&
+            <div className="downIcon">
+              <ExpandMoreIcon fontSize="large" />
+            </div>
+          }
+        </div>
 
 
 
-          <Grid item xs={12}>
-            <Stacks />
-          </Grid>
-
-
-        </Box>
-      </center>
+      </div>
     </ThemeProvider >
+
   )
 }
 

@@ -2,12 +2,16 @@ import { Button, Paper, Typography } from '@mui/material';
 import AboutLinks from './AboutLinks';
 
 function TitleBar({ changePage }) {
+
+    const styles = {
+        borderBottom: '2px solid white',
+    }
+
     return (
-        <Paper elevation={0}>
-            <Button variant="empty-title" style={{ color: 'white' }} onClick={() => changePage('home')}>
-                <Typography variant='h4'>Riley Alexis</Typography>
-            </Button>
-        </Paper>
+        <div className="titles-box">
+            <h1 className='titleBar'>Riley Alexis</h1>
+            <h2 className='subTitleBar'>Web Developer</h2>
+        </div>
     )
 }
 

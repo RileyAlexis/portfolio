@@ -13,7 +13,7 @@ export const lightDefault = createTheme({
       main: '#dd2c00',
     },
     background: {
-      default: '#4c4851',
+      default: 'rgba(0,0,0,0.8)',
       paper: '#4c4851'
     },
     text: {
@@ -36,17 +36,28 @@ export const lightDefault = createTheme({
           }
         },
         {
+          props: { variant: 'nav-button' },
+          style: {
+            borderRadius: 16,
+            padding: '0px 5px 0px 5px',
+            margin: '0 5px 0 5px',
+            textTransform: 'none',
+            background: 'transparent',
+          }
+        },
+        {
           props: { variant: 'empty' },
           style: {
             border: 0,
             borderRadius: 16,
             background: 'linear-gradient(90deg, rgba(120, 120, 120, 0.2) 0%, rgba(222, 222, 222, 0.32) 100%)',
             textTransform: 'none',
-            margin: '5px',
-            paddingTop: '0px',
-            paddingBottom: '0px',
-            paddingLeft: '4px',
-            paddingRight: '4px',
+            color: '#33f20d',
+            margin: '15px',
+            paddingTop: '5px',
+            paddingBottom: '5px',
+            paddingLeft: '10px',
+            paddingRight: '10px',
             hover: {
               background: 'linear-gradient(90deg, rgba(222, 222, 222, 0.32) 0%,  rgba(120, 120, 120, 0.2) 100%)',
             }
@@ -65,13 +76,17 @@ export const lightDefault = createTheme({
           }
         }
       ],
-      styleOverrides: {
-        root: {
-
-        },
-      },
     },
     MuiPaper: {
+      variants: [
+        {
+          props: { variant: 'textBlock' },
+          style: {
+            background: 'transparent',
+            margin: '5px',
+          }
+        },
+      ],
       styleOverrides: {
         root: {
           padding: '0px',
@@ -87,7 +102,6 @@ export const lightDefault = createTheme({
           style: {
             display: 'inline',
             padding: '2px',
-            fontSize: '1.25rem',
             alignItems: 'center'
           }
         },
@@ -96,7 +110,6 @@ export const lightDefault = createTheme({
           style: {
             display: 'inline',
             padding: '2px',
-            fontSize: '1rem',
             alignItems: 'center'
           }
         },
