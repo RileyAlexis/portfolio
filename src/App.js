@@ -4,6 +4,7 @@ import './App.css';
 
 //Material UI
 import { Grid, ThemeProvider, Stack, Paper, Button } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useMediaQuery } from "@mui/material";
 
 
@@ -67,13 +68,16 @@ function App() {
           <TitleBar />
           <AboutLinks />
         </header>
-
-        <ReactPageScroller pageOnChange={handlePageChange}>
-          <HomeScreen />
-          <PickleFarmScreen />
-          <VelvetScreen />
-        </ReactPageScroller>
-
+        <div className='scrollBox'>
+          <ReactPageScroller pageOnChange={handlePageChange} containerHeight={"95vh"} >
+            <HomeScreen />
+            <PickleFarmScreen />
+            <VelvetScreen />
+          </ReactPageScroller>
+          <div className="downIcon">
+            <ExpandMoreIcon fontSize="large" />
+          </div>
+        </div>
 
 
 
