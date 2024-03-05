@@ -157,3 +157,16 @@
         color: var(--green);
     }
 }
+
+@media (min-width: 1024px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .aboutPara {
+        margin-left: 25rem;
+        margin-right: 25rem;
+        text-align: left;
+    }
+}
