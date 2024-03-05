@@ -74,9 +74,11 @@ function App() {
             <PickleFarmScreen />
             <VelvetScreen />
           </ReactPageScroller>
-          <div className="downIcon">
-            <ExpandMoreIcon fontSize="large" />
-          </div>
+          {pageScroll < 2 &&
+            <div className="downIcon">
+              <ExpandMoreIcon fontSize="large" />
+            </div>
+          }
         </div>
 
 

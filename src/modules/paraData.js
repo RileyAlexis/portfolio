@@ -14,15 +14,7 @@ export const paraData = {
                         Players can use pickles to purchase robots to automate the process and upgrades to make them run faster.
                         I chose to build a game instead of a simple CRUD application to challenge myself to learn the ins and outs
                         of React and Redux. Robotic Pickle Farm must not only read and write data from a Postgres database, but
-                        also must parse and run various calculations on that data up to twice per second. Given the exponential
-                        numbers involved various performance enhancements were required in order to win the game without slowing
-                        or crashing the player’s browser. One of the simplest was to reformat large numbers to
-                        decimals(ex: 10,000,000,000 shows as 10.00 B), while another replaced objects with integers to reduce
-                        the number of loops.`,
-        `The design of the game engine required careful syncing with the React and Redux cycle. Maintaining
-                        the immutable state in Redux and a correctly updated DOM required copying state to mutable variables
-                        in order to run calculations and then updating state after the cycle completes. In this way data dependent
-                        on previous calculations maintains integrity.`
+                        also must parse and run various calculations on that data up to twice per second.`
     ],
     velvet: [
         `Velvet is an application created early in my education. I was curious about real time audio analysis using javascript and

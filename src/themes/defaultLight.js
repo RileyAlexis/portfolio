@@ -52,11 +52,12 @@ export const lightDefault = createTheme({
             borderRadius: 16,
             background: 'linear-gradient(90deg, rgba(120, 120, 120, 0.2) 0%, rgba(222, 222, 222, 0.32) 100%)',
             textTransform: 'none',
-            margin: '5px',
-            paddingTop: '0px',
-            paddingBottom: '0px',
-            paddingLeft: '4px',
-            paddingRight: '4px',
+            color: '#33f20d',
+            margin: '15px',
+            paddingTop: '5px',
+            paddingBottom: '5px',
+            paddingLeft: '10px',
+            paddingRight: '10px',
             hover: {
               background: 'linear-gradient(90deg, rgba(222, 222, 222, 0.32) 0%,  rgba(120, 120, 120, 0.2) 100%)',
             }
