@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ReactPageScroller, { SectionContainer } from 'react-page-scroller';
 import './App.css';
 
 //Material UI
@@ -21,9 +22,13 @@ import { lightDefault } from './themes/defaultLight';
 import { codeData } from './modules/codeData';
 import { paraData } from './modules/paraData';
 import { MobileNav } from './components/MobileNav';
+import { HomeScreen } from './screens/Home.screen';
+import { PickleFarmScreen } from './screens/PickleFarm.screen';
+import { VelvetScreen } from './screens/Velvet.screen';
 
 
 function App() {
+  const [pageScroll, setPageScroll] = useState(0);
   const [currentTheme, setCurrentTheme] = useState(lightDefault);
   const [page, setPage] = useState('home');
   const isSmallScreen = useMediaQuery("(max-width: 600px)");
@@ -46,44 +51,34 @@ function App() {
   useEffect((() => {
     console.log('useEffect para', para);
     setTextData(paraData[para])
-  }), [para]);
+  }), [para, setPara]);
+
+  const handlePageChange = (number) => {
+    setPageScroll(number);
+    console.log(number);
+  }
 
   return (
-    <div>
-      <ThemeProvider theme={lightDefault}>
-        <CodeDisplay style={{ zIndex: 1 }} codeProp={codeData[codeIndex]} />
+    <ThemeProvider theme={lightDefault}>
+      <CodeDisplay style={{ zIndex: 1 }} codeProp={codeData[codeIndex]} />
 
-        <div className='container'>
-          <header>
-            <TitleBar />
-            <AboutLinks />
-          </header>
+      <div className='container'>
+        <header>
+          <TitleBar />
+          <AboutLinks />
+        </header>
 
-          <div className='aboutPara'>
-            <AboutPara textData={textData} />
-          </div>
-          {/* <AppButton
-            buttonTitle={"Velvet"}
-            source={"https://github.com/RileyAlexis/Velvet"}
-            application={"http://velvet.rileyalexis.com"}
-            textTitle={'velvet'}
-            setPara={setPara} />
+        <ReactPageScroller pageOnChange={handlePageChange}>
+          <HomeScreen />
+          <PickleFarmScreen />
+          <VelvetScreen />
+        </ReactPageScroller>
 
-          <AppButton
-            buttonTitle={"Robotic Pickle Farm"}
-            source={"https://github.com/RileyAlexis/roboticPickleFarm"}
-            application={"http://picklefarm.rileyalexis.com"}
-            textTitle={'pickles'}
-            setPara={setPara} /> */}
 
-          {/* <Stacks /> */}
 
-          {isSmallScreen &&
-            <MobileNav setPara={setPara} />
-          }
-        </div>
-      </ThemeProvider >
-    </div>
+
+      </div>
+    </ThemeProvider >
 
   )
 }

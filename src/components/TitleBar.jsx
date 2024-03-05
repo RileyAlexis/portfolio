@@ -8,7 +8,7 @@ function TitleBar({ changePage }) {
     }
 
     return (
-        <div class="titles-box">
+        <div className="titles-box">
             <h1 className='titleBar'>Riley Alexis</h1>
             <h2 className='subTitleBar'>Web Developer</h2>
         </div>

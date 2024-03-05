@@ -113,12 +113,11 @@
     }
 
     .mobileNav {
-        position: sticky;
+        overflow: hidden;
+        position: fixed;
         grid-column: 1 / span 12;
         bottom: 0%;
         width: 100%;
-        /* display: flex; */
-        /* justify-content: space-around; */
     }
 
 }
