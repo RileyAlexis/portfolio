@@ -23,7 +23,7 @@ export const paraData = {
         other services.
         
         Velvet identifies the fundamental frequency and the first formant frequency of an audio signal and
-        displays it in real time. It can create a stream from the device microphone or from an upoaded
+        displays it in real time. It can create a stream from the device microphone or from an uploaded
         audio file. 
         `
     ]
