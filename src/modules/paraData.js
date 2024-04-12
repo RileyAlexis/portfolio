@@ -17,12 +17,14 @@ export const paraData = {
                         also must parse and run various calculations on that data up to twice per second.`
     ],
     velvet: [
-        `Velvet is an application created early in my education. I was curious about real time audio analysis using javascript and
-                        visualizing the audio with HTML canvas. Velvet uses the Web Audio API and Meyda.js to analyze the spectral centroid, also
-                        known as resonance or brightness, of a human voice.`,
-        `The intent of this application is to demonstrate a possible tool for speech
-                        therapy that could be run entirely on the user's system. The application does not have a backend server, does not
-                        save or transmit any data and doesn't even require an internet connection once downloaded. Velvet is designed with user privacy
-                        and security in mind given the nature of the application.`
+        `Velvet is a real time speech analysis tool. Velvet grew out of a need for a more
+        accurate, free and open source voice analysis application that could also be trustworthy. 
+        This application is free and always will be. It collects no data and does not communicate with any
+        other services.
+        
+        Velvet identifies the fundamental frequency and the first formant frequency of an audio signal and
+        displays it in real time. It can create a stream from the device microphone or from an upoaded
+        audio file. 
+        `
     ]
 }

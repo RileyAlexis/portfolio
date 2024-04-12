@@ -9,7 +9,7 @@ export const VelvetScreen = () => {
         window.open('https://velvet.rileyalexis.com', '_blank');
     }
     const openSourceCode = () => {
-        window.open('https://github.com/RileyAlexis/Velvet', '_blank');
+        window.open('https://github.com/RileyAlexis/VelvetReact', '_blank');
     }
 
     return (
